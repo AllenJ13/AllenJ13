@@ -1,0 +1,88 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
+
+    <!--Servlet初始化参数-->
+    <context-param>
+        <param-name>project_param_01</param-name>
+        <param-value>xuexi</param-value>
+    </context-param>
+
+    <!--通过Servlet映射路径找到对应的servlet-->
+    <servlet>
+        <servlet-name>bbsServlet</servlet-name>
+        <servlet-class>com.xuexi.web.BbsServlet</servlet-class>
+        <init-param>
+            <param-name>fileName</param-name>
+            <param-value>init.conf</param-value>
+        </init-param>
+        <!--大于等于0:启动时加载,小于0:第一次访问时加载(默认小于零)-->
+        <load-on-startup>1</load-on-startup>
+        <enabled>true</enabled>
+    </servlet>
+
+    <!--可配置多个请求路径-->
+    <servlet-mapping>
+        <servlet-name>bbsServlet</servlet-name>
+        <url-pattern>/bbs/findAll</url-pattern>
+        <url-pattern>*.do</url-pattern>
+        <url-pattern>/myservlet/*</url-pattern>
+    </servlet-mapping>
+
+    <!--会话配置 此处报红不影响-->
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <cookie-config>
+            <!--默认JESSIONID,尽量不要修改-->
+            <name>JESSIONID</name>
+            <domain>localhost</domain>
+            <path>/</path>
+            <comment>Session Cookie</comment>
+            <http-only>true</http-only>
+            <source>false</source>
+            <max-age>3600</max-age>
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
+    <!--监听器-->
+    <!--过滤器-->
+    <filter>
+        <filter-name>login_filter</filter-name>
+        <filter-class>
+            com.xuexi.web.LoginFilter
+        </filter-class>
+        <init-param>
+            <param-name>skip</param-name>
+            <param-value>/loginController/*.do</param-value>
+        </init-param>
+    </filter>
+    <!--过滤.do结尾的请求-->
+    <filter-mapping>
+        <filter-name>login_filter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+
+    <!--欢迎页配置，请求顺序,从上往下-->
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!--错误页面-->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error404.html</location>
+    </error-page>
+    <!--根据状态码或者是异常信息跳转到对应的错误页面-->
+    <error-page>
+        <error-code>500</error-code>
+        <!--<exception-type>java.lang.Exception</exception-type>-->
+        <location>/exception.jsp</location>
+    </error-page>
+
+    <distributable/>
+</web-app>

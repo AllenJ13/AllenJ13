@@ -1,0 +1,17 @@
+2020/03/19 19:33:41 [error] 13860#12764: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://[::1]:8888/", host: "localhost:99"
+2020/03/19 19:33:42 [error] 13860#12764: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8888/", host: "localhost:99"
+2020/03/19 19:33:43 [error] 13860#12764: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://[::1]:9999/", host: "localhost:99"
+2020/03/19 19:33:44 [error] 13860#12764: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:9999/", host: "localhost:99"
+2020/03/19 19:33:45 [error] 13860#12764: *1 no live upstreams while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", upstream: "http://serverpool/favicon.ico", host: "localhost:99", referrer: "http://localhost:99/"
+2020/03/19 19:34:34 [notice] 12628#9196: signal process started
+2020/03/19 19:38:26 [notice] 18724#5496: signal process started
+2020/03/19 19:49:22 [emerg] 20604#5900: invalid parameter "wegitht=2" in D:\BasicSoft\Tomcat_Cluster\nginx-1.16.0/conf/nginx.conf:119
+2020/03/19 19:49:46 [notice] 2872#10940: signal process started
+2020/03/19 19:51:06 [notice] 17744#572: signal process started
+2020/03/19 19:56:46 [notice] 7692#10056: signal process started
+2020/03/19 19:59:32 [notice] 14680#9360: signal process started
+2020/03/19 20:03:18 [notice] 12856#21728: signal process started
+2020/03/19 20:06:54 [emerg] 4420#22208: no servers are inside upstream in D:\BasicSoft\Tomcat_Cluster\nginx-1.16.0/conf/nginx.conf:122
+2020/03/19 20:07:13 [notice] 5704#22512: signal process started
+2020/03/19 20:07:46 [notice] 22100#21724: signal process started
+2020/03/19 20:47:22 [notice] 1780#7148: signal process started
