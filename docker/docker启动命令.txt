@@ -1,0 +1,16 @@
+docker run -d -p 9080:8080 --name myt9 
+-v /zxuse/mydocker/tomcat9/test:/usr/local/apache-tomcat-9.0.27/webapps/test 
+-v /zxuse/mydocker/tomcat9/tomcat9logs/:/usr/local/apache-tomcat-9.0.27/logs 
+--privileged=true zxtomcat9
+
+-- mysql容器启动
+docker run -p 12345:3306 --name mysql -v /zxuse/mysql/conf:/etc/mysql/conf.d -v /zxuse/mysql/logs:/logs -v /zxuse/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6
+
+
+--mysql数据备份
+docker exec myql服务容器ID sh -c ' exec mysqldump --all-databases -uroot -p"123456" ' > /zxuse/all-databases.sql
+
+--redis数据迁移备份
+docker run -p 6379:6379 -v /zxuse/myredis/data:/data -v /zxuse/myredis/conf/redis.conf:/usr/local/etc/redis/redis.conf  -d redis:3.2 redis-server /usr/local/etc/redis/redis.conf --appendonly yes
+
+--docker
